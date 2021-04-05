@@ -1,27 +1,26 @@
 pipleine{
 	agent any
-	
 	stages{
 		stage('Check stage'){
-		steps{
-			withMaven(maven: 'Mvn'){
-			bat 'Mvn --versio'
-		}{
-	}
-	
+			steps{
+				withMaven(maven: 'Mvn'){
+					bat 'mvn --version'
+				}
+			}
+		}	
 		stage('Compile stage'){
-		steps{
-			withMaven(maven: 'Mvn'){
-		
-			bat 'Mvn clean compile'
-		}
-	}
-	
+			steps{
+				withMaven(maven: 'Mvn'){
+					bat 'mvn clean compile'
+				}
+			}
+		}	
 		stage('Test stage'){
-		steps{
-			withMaven(maven: 'Mvn'){
-			bat 'mvn test'
-		}
-	}
+			steps{
+				withMaven(maven: 'Mvn'){
+					bat 'mvn test'
+				}
+			}
+		}	
 	}
 }
