@@ -25,7 +25,7 @@ public class TestMaths {
 	}
 	@Test
 	public void testSquare() {
-		assertEquals(25,maths.square(5));
+		assertEquals(36,maths.square(6));
 	}
 	
 	@Test
