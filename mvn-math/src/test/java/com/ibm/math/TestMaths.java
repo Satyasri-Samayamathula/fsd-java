@@ -37,6 +37,10 @@ public class TestMaths {
 		assertNotEquals(10,maths.square(3));
 	}
 	@Test
+	public void testsq() {
+		assertNotEquals(5,maths.square(2));
+	}
+	@Test
 	public void testZeroDiv() {
 		//assertEquals(10,maths.sum(5, 5));
 		assertThrows(ArithmeticException.class,()->maths.div(2, 0));
