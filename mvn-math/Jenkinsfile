@@ -4,16 +4,22 @@ pipleine{
 	stages{
 		stage('Check stage'){
 		steps{
-			bat 'mvn --versio'
-		}
+			withMaven(maven: 'Mvn'){
+			bat 'Mvn --versio'
+		}{
 	}
-	stages{
+	
 		stage('Compile stage'){
-			bat 'mvn clean compile'
+		steps{
+			withMaven(maven: 'Mvn'){
+		
+			bat 'Mvn clean compile'
 		}
 	}
-	stages{
+	
 		stage('Test stage'){
+		steps{
+			withMaven(maven: 'Mvn'){
 			bat 'mvn test'
 		}
 	}
