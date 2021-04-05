@@ -1,0 +1,21 @@
+pipleine{
+	agent any
+	
+	stages{
+		stage('Check stage'){
+		steps{
+			bat 'mvn --versio'
+		}
+	}
+	stages{
+		stage('Compile stage'){
+			bat 'mvn clean compile'
+		}
+	}
+	stages{
+		stage('Test stage'){
+			bat 'mvn test'
+		}
+	}
+	}
+}
