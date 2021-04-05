@@ -32,10 +32,7 @@ public class TestMaths {
 	public void testDiv() {
 		assertEquals(2,maths.div(4,2));
 	}
-	@Test
-	public void tests() {
-		assertNotEquals(10,maths.square(3));
-	}
+	
 	@Test
 	public void testsq() {
 		assertNotEquals(5,maths.square(2));
