@@ -11,14 +11,14 @@ pipleine{
 		stage('Compile stage'){
 			steps{
 				withMaven(maven: 'Mvn'){
-					bat 'mvn clean compile'
+					bat 'mvn -f mvn-math/pom.xml clean compile'
 				}
 			}
 		}	
 		stage('Test stage'){
 			steps{
 				withMaven(maven: 'Mvn'){
-					bat 'mvn test'
+					bat 'mvn -f mvn-math/pom.xml test'
 				}
 			}
 		}	
