@@ -4,7 +4,7 @@ pipeline{
 	stages{
 		stage('Check stage'){
 			steps{
-				withMaven(maven : 'Maven'){
+				withMaven(maven : 'Mvn'){
 					sh 'mnv --version'
 				}
 			}
@@ -12,7 +12,7 @@ pipeline{
 		
 		stage('Compile stage'){
 			steps{
-				withMaven(maven : 'Maven'){
+				withMaven(maven : 'Mvn'){
 					sh 'mvn -f mvn-math/pom.xml compile'
 				}
 			}
@@ -20,7 +20,7 @@ pipeline{
 		
 		stage('Test stage'){
 			steps{
-				withMaven(maven : 'Maven'){					
+				withMaven(maven : 'Mvn'){					
 					sh 'mvn -f mvn-math/pom.xml install'
 				}
 			}
