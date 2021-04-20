@@ -29,18 +29,18 @@ public class UserController {
 		int uid = service.addUser(u);
 		return "User Added with ID:" +uid;
 	}
-	@PostMapping(value="/add")
-	public String addUserParam(@RequestParam("name")String name) {
-		User u = new User();
-		u.setUsername(name);
-		int uid = service.addUser(u);
-		return "User Added with ID:" +uid;
-	}
-	@PostMapping(value="/add",consumes = "application/json")
-	public String addUserBody(@RequestBody User u) {
-		int uid = service.addUser(u);
-		return "User Added with ID:" +uid;
-	}
+//	@PostMapping(value="/add")
+//	public String addUserParam(@RequestParam("name")String name) {
+//		User u = new User();
+//		u.setUsername(name);
+//		int uid = service.addUser(u);
+//		return "User Added with ID:" +uid;
+//	}
+//	@PostMapping(value="/add",consumes = "application/json")
+//	public String addUserBody(@RequestBody User u) {
+//		int uid = service.addUser(u);
+//		return "User Added with ID:" +uid;
+//	}
 	@GetMapping(value="/get/{uid}", produces="application/json")
 	public User getUser(@PathVariable("uid") int uid) {
 		User u = service.getUser(uid);

@@ -15,6 +15,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "questions")
 public class Question {
@@ -26,11 +28,11 @@ public class Question {
 	private String question;
 	@Transient
 	private String answer;
-	
+	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "qcode")
 	private Quiz quiz;
-	
+	@JsonBackReference
 	@OneToMany(mappedBy = "que",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	private List<Option> options=new ArrayList<Option>();
 

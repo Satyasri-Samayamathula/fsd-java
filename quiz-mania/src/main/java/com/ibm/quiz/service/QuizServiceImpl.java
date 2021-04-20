@@ -45,6 +45,10 @@ public  class QuizServiceImpl implements QuizService {
 		
 		return 0;
 	}
+	@Override
+	public Question getQuestion(int qid) {
+		return qrepo.findById(qid).get();
+	}
 	
 	
 }

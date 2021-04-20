@@ -10,6 +10,8 @@ public interface QuizService {
 	
 	Quiz getQiuz(int qcode);
 	
+	Question getQuestion(int qid);
+	
 	int addQuestion(Question que,int qcode);
 	
 	int addOption(Option opt,int qid);

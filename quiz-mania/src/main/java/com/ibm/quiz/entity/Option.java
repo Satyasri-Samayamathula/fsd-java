@@ -8,6 +8,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name="que_opts")
 public class Option {
@@ -15,30 +17,40 @@ public class Option {
 	@Id
 	@GeneratedValue
 	private int opid;
+	@Column(name="opt")
+	private char option;
 	@Column(length =40)
-	private String opt;
-	private boolean isAnswer;
+	private String text;
+	
+	private boolean flag;
+	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name="qid")
 	private Question que;
-	
 	public int getOpid() {
 		return opid;
 	}
 	public void setOpid(int opid) {
 		this.opid = opid;
 	}
-	public String getOption() {
-		return opt;
+	public char getOption() {
+		return option;
 	}
-	public void setOption(String option) {
-		this.opt = option;
+	public void setOption(char option) {
+		this.option = option;
 	}
-	public boolean isAnswer() {
-		return isAnswer;
+	public String getText() {
+		return text;
 	}
-	public void setAnswer(boolean isAnswer) {
-		this.isAnswer = isAnswer;
+	public void setText(String text) {
+		this.text = text;
+	}
+	
+	public boolean isFlag() {
+		return flag;
+	}
+	public void setFlag(boolean flag) {
+		this.flag = flag;
 	}
 	public Question getQue() {
 		return que;
@@ -46,4 +58,6 @@ public class Option {
 	public void setQue(Question que) {
 		this.que = que;
 	}
+	
+	
 }
