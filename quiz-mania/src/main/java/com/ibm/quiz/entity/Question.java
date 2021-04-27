@@ -16,25 +16,29 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "questions")
 public class Question {
+
 	@Id
 	@GeneratedValue
 	private int qid;
-	
 	@Column(length = 50)
 	private String question;
+	
 	@Transient
-	private String answer;
+	private char answer;
+	
 	@JsonBackReference
 	@ManyToOne
 	@JoinColumn(name = "qcode")
 	private Quiz quiz;
-	@JsonBackReference
-	@OneToMany(mappedBy = "que",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private List<Option> options=new ArrayList<Option>();
+	
+	@JsonManagedReference
+	@OneToMany(mappedBy = "que", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	private List<Option> opt = new ArrayList<Option>();
 
 	public int getQid() {
 		return qid;
@@ -60,13 +64,22 @@ public class Question {
 		this.quiz = quiz;
 	}
 
-	public List<Option> getOptions() {
-		return options;
+	public char getAnswer() {
+		return answer;
 	}
 
-	public void setOptions(List<Option> options) {
-		this.options = options;
+	public void setAnswer(char answer) {
+		this.answer = answer;
 	}
 
+	public List<Option> getOpt() {
+		return opt;
+	}
+
+	public void setOpt(List<Option> opt) {
+		this.opt = opt;
+	}
+	
+	
 	
 }

@@ -11,18 +11,24 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity
-@Table(name = "quiz")
+@Table(name ="quizes")
 public class Quiz {
+
 	@Id
 	@GeneratedValue
 	private int qcode;
 	@Column(length = 15)
-	private String topic;	
+	private String topic;
 	
-	@OneToMany(mappedBy = "quiz" ,fetch = FetchType.EAGER, cascade = CascadeType.ALL )
-	private List<Question> questions=new ArrayList<Question>();
+	@JsonManagedReference
+	@OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+	private List<Question> question = new ArrayList<Question>();
 
 	public int getQcode() {
 		return qcode;
@@ -40,13 +46,14 @@ public class Quiz {
 		this.topic = topic;
 	}
 
-	public List<Question> getQuestions() {
-		return questions;
+	public List<Question> getQuestion() {
+		return question;
 	}
 
-	public void setQuestions(List<Question> questions) {
-		this.questions = questions;
+	public void setQuestion(List<Question> question) {
+		this.question = question;
 	}
+
 	
 	
 }
