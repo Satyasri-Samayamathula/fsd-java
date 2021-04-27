@@ -1,0 +1,10 @@
+[
+	{
+		"uid":101,
+		"username":"polo",
+		"password":"java",
+		"role":"user",
+		"result":null,
+		"quiz":null
+	}
+]
